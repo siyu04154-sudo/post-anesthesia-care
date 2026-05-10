@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>麻醉後照護｜衛生福利部彰化醫院麻醉科</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&family=Instrument+Serif:ital@0;1&display=swap');
+
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+
+:root{
+  --bg:#F4F7F5;
+  --surface:#FFFFFF;
+  --border:#DDE8E2;
+  --ink:#1A2420;
+  --ink-2:#5A6E66;
+  --ink-3:#9AADA5;
+  --primary:#2A6E52;
+  --primary-l:#EAF4EF;
+  --accent:#1B5C8A;
+  --accent-l:#E8F2F9;
+  --warn:#8C5500;
+  --warn-l:#FFF4E4;
+  --urgent:#8B2020;
+  --urgent-l:#FDF0F0;
+  --r:14px;
+}
+
+html{scroll-behavior:smooth}
+body{font-family:'Noto Sans TC',sans-serif;background:var(--bg);color:var(--ink);min-height:100vh}
+
+/* ─── Header ─── */
+.site-header{
+  background:var(--surface);border-bottom:1px solid var(--border);
+  padding:14px 20px;display:flex;align-items:center;gap:12px;
+  position:sticky;top:0;z-index:100;box-shadow:0 1px 6px rgba(0,0,0,0.06);
+}
+.header-dot{width:10px;height:10px;border-radius:50%;background:var(--primary);flex-shrink:0}
+.header-title{font-size:15px;font-weight:700;color:var(--ink);flex:1}
+.header-sub{font-size:11px;color:var(--ink-3);display:block;margin-top:1px}
+.theme-badge{
+  font-size:11px;color:var(--primary);background:var(--primary-l);
+  border:1px solid rgba(42,110,82,.2);border-radius:99px;padding:4px 12px;font-weight:500;
+}
+
+/* ─── Container ─── */
+.container{max-width:680px;margin:0 auto;padding:24px 16px 72px}
+
+/* ─── Hero ─── */
+.hero{
+  background:linear-gradient(135deg,#1A3A2C 0%,#2A6E52 100%);
+  border-radius:18px;padding:28px 24px 24px;
+  margin-bottom:24px;color:#fff;position:relative;overflow:hidden;
+}
+.hero::after{
+  content:'';position:absolute;right:-20px;bottom:-20px;
+  width:160px;height:160px;border-radius:50%;
+  background:radial-gradient(circle,rgba(255,255,255,.08),transparent 70%);
+  pointer-events:none;
+}
+.hero-eyebrow{font-size:11px;letter-spacing:.12em;color:rgba(180,230,200,.7);font-weight:500;margin-bottom:10px}
+.hero-title{font-family:'Instrument Serif',serif;font-size:26px;line-height:1.3;margin-bottom:12px}
+.hero-title em{font-style:italic;color:#A8E6C4}
+.hero-desc{font-size:13px;color:rgba(255,255,255,.7);line-height:1.8}
+
+/* ─── Section Label ─── */
+.section-label{
+  font-size:11px;font-weight:700;letter-spacing:.1em;
+  color:var(--primary);text-transform:uppercase;
+  margin:24px 0 12px;display:flex;align-items:center;gap:8px;
+}
+.section-label::after{content:'';flex:1;height:1px;background:var(--border)}
+
+/* ─── Info Card ─── */
+.info-card{
+  background:var(--surface);border:1px solid var(--border);
+  border-radius:var(--r);overflow:hidden;margin-bottom:12px;
+}
+.card-header{
+  display:flex;align-items:center;gap:12px;
+  padding:14px 16px;border-bottom:1px solid var(--border);
+  background:var(--bg);
+}
+.card-icon{font-size:20px;flex-shrink:0}
+.card-title{font-size:14px;font-weight:700;color:var(--ink)}
+.card-subtitle{font-size:11px;color:var(--ink-3);margin-top:2px}
+.card-body{padding:14px 16px}
+
+/* ─── Timeline ─── */
+.timeline{display:flex;flex-direction:column;gap:0}
+.tl-item{display:flex;gap:14px;padding-bottom:16px;position:relative}
+.tl-item:last-child{padding-bottom:0}
+.tl-left{display:flex;flex-direction:column;align-items:center;flex-shrink:0;width:36px}
+.tl-dot{
+  width:32px;height:32px;border-radius:50%;
+  background:var(--primary-l);border:2px solid var(--primary);
+  display:flex;align-items:center;justify-content:center;
+  font-size:13px;font-weight:700;color:var(--primary);flex-shrink:0;
+}
+.tl-line{flex:1;width:2px;background:var(--border);margin-top:4px}
+.tl-item:last-child .tl-line{display:none}
+.tl-right{flex:1;padding-top:4px}
+.tl-title{font-size:13px;font-weight:700;color:var(--ink);margin-bottom:4px}
+.tl-desc{font-size:12.5px;color:var(--ink-2);line-height:1.7}
+
+/* ─── Checklist ─── */
+.checklist{display:flex;flex-direction:column;gap:8px}
+.check-item{
+  display:flex;align-items:flex-start;gap:10px;
+  font-size:13px;line-height:1.6;color:var(--ink-2);
+}
+.check-dot{
+  width:20px;height:20px;min-width:20px;border-radius:50%;
+  background:var(--primary-l);border:1.5px solid var(--primary);
+  display:flex;align-items:center;justify-content:center;
+  margin-top:1px;font-size:11px;color:var(--primary);font-weight:700;
+}
+
+/* ─── Grid Cards ─── */
+.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:12px}
+.mini-card{
+  background:var(--surface);border:1px solid var(--border);
+  border-radius:10px;padding:14px 12px;
+}
+.mini-card-icon{font-size:20px;margin-bottom:6px}
+.mini-card-title{font-size:12px;font-weight:700;color:var(--ink);margin-bottom:4px}
+.mini-card-desc{font-size:11.5px;color:var(--ink-2);line-height:1.6}
+
+/* ─── Warning / Urgent Box ─── */
+.warn-box{
+  background:var(--warn-l);border:1px solid rgba(140,85,0,.2);
+  border-radius:var(--r);padding:16px;margin-bottom:12px;
+}
+.warn-title{
+  font-size:13px;font-weight:700;color:var(--warn);
+  display:flex;align-items:center;gap:8px;margin-bottom:10px;
+}
+.urgent-box{
+  background:var(--urgent-l);border:1px solid rgba(139,32,32,.2);
+  border-radius:var(--r);padding:16px;margin-bottom:12px;
+}
+.urgent-title{
+  font-size:13px;font-weight:700;color:var(--urgent);
+  display:flex;align-items:center;gap:8px;margin-bottom:10px;
+}
+.box-list{display:flex;flex-direction:column;gap:6px}
+.box-item{
+  font-size:12.5px;line-height:1.6;
+  display:flex;align-items:baseline;gap:8px;
+}
+.box-item::before{content:'▸';font-size:10px;flex-shrink:0}
+.warn-box .box-item{color:#5C3800}
+.warn-box .box-item::before{color:var(--warn)}
+.urgent-box .box-item{color:#5A1414}
+.urgent-box .box-item::before{color:var(--urgent)}
+
+/* ─── Highlight ─── */
+.highlight{
+  background:var(--accent-l);border-left:3px solid var(--accent);
+  border-radius:0 8px 8px 0;padding:12px 14px;
+  font-size:13px;color:#1A3A5C;line-height:1.7;margin-bottom:12px;
+}
+
+/* ─── Reminder ─── */
+.reminder{
+  font-size:12.5px;color:var(--ink-2);line-height:1.8;
+  padding:16px;background:var(--surface);border:1px solid var(--border);
+  border-radius:var(--r);text-align:center;
+}
+.reminder strong{color:var(--ink)}
+
+/* ─── Footer ─── */
+.site-footer{
+  text-align:center;padding:20px 16px;
+  font-size:11px;color:var(--ink-3);
+  border-top:1px solid var(--border);line-height:1.8;
+}
+
+@media(max-width:480px){
+  .grid-2{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-dot"></div>
+  <div class="header-title">
+    麻醉後照護
+    <span class="header-sub">POST-ANESTHESIA CARE GUIDE</span>
+  </div>
+  <span class="theme-badge">術後照護</span>
+</header>
+
+<div class="container">
+
+  <!-- Hero -->
+  <div class="hero">
+    <div class="hero-eyebrow">THEME 05 · 麻醉衛教</div>
+    <div class="hero-title">手術後，<em>安心恢復</em><br>從這裡開始</div>
+    <div class="hero-desc">回到病房的第一天最關鍵。飲食、活動、傷口、用藥——每個環節都影響恢復速度。本指引幫助您與家屬了解術後照護的重點，讓恢復更順利、更安心。</div>
+  </div>
+
+  <!-- 飲食恢復 -->
+  <div class="section-label">🍵 飲食恢復</div>
+  <div class="info-card">
+    <div class="card-header">
+      <span class="card-icon">🍵</span>
+      <div>
+        <div class="card-title">循序漸進，腸胃慢慢甦醒</div>
+        <div class="card-subtitle">依醫護人員指示開始，不要急著進食</div>
+      </div>
+    </div>
+    <div class="card-body">
+      <div class="timeline">
+        <div class="tl-item">
+          <div class="tl-left"><div class="tl-dot">1</div><div class="tl-line"></div></div>
+          <div class="tl-right">
+            <div class="tl-title">術後初期——禁食或清流質</div>
+            <div class="tl-desc">手術後腸胃功能尚未完全恢復，需等醫護評估後才可飲水。開始時以少量溫水或清流質（米湯、清湯）為主。</div>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-left"><div class="tl-dot">2</div><div class="tl-line"></div></div>
+          <div class="tl-right">
+            <div class="tl-title">腸胃排氣後——軟食</div>
+            <div class="tl-desc">當您開始排氣（放屁）表示腸胃蠕動恢復，可進階為粥、豆腐等軟質食物。</div>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-left"><div class="tl-dot">3</div><div class="tl-line"></div></div>
+          <div class="tl-right">
+            <div class="tl-title">恢復正常——一般飲食</div>
+            <div class="tl-desc">依醫囑逐步恢復正常飲食。術後應補充蛋白質（魚、豆腐、蛋）幫助傷口癒合，避免辛辣刺激食物。</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 活動與休息 -->
+  <div class="section-label">🚶 活動與休息</div>
+  <div class="info-card">
+    <div class="card-header">
+      <span class="card-icon">🚶</span>
+      <div>
+        <div class="card-title">早期下床，減少併發症</div>
+        <div class="card-subtitle">臥床太久反而不利恢復</div>
+      </div>
+    </div>
+    <div class="card-body">
+      <div class="highlight">
+        💡 早期活動能促進腸胃蠕動、預防血栓、改善肺功能——只要醫師同意，越早下床越好！
+      </div>
+      <div class="checklist">
+        <div class="check-item">
+          <div class="check-dot">✓</div>
+          <span>臥床時每小時做腳踝轉動、腿部伸展，促進下肢血液循環</span>
+        </div>
+        <div class="check-item">
+          <div class="check-dot">✓</div>
+          <span>第一次下床一定要有護理師或家屬陪同，避免跌倒</span>
+        </div>
+        <div class="check-item">
+          <div class="check-dot">✓</div>
+          <span>起身時先在床邊坐穩再站立，適應幾分鐘再行走</span>
+        </div>
+        <div class="check-item">
+          <div class="check-dot">✓</div>
+          <span>每天逐漸增加活動量，但感到疲倦或頭暈時立刻休息</span>
+        </div>
+        <div class="check-item">
+          <div class="check-dot">✓</div>
+          <span>依醫囑做深呼吸及咳嗽運動，預防肺炎</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 傷口照護 -->
+  <div class="section-label">🩹 傷口照護</div>
+  <div class="grid-2">
+    <div class="mini-card">
+      <div class="mini-card-icon">💧</div>
+      <div class="mini-card-title">保持乾燥</div>
+      <div class="mini-card-desc">傷口敷料保持乾燥，淋浴時用防水貼膜保護，依醫囑決定何時可淋浴</div>
+    </div>
+    <div class="mini-card">
+      <div class="mini-card-icon">👀</div>
+      <div class="mini-card-title">每日觀察</div>
+      <div class="mini-card-desc">每天檢查傷口顏色、腫脹、分泌物，有異常立即告知護理師</div>
+    </div>
+    <div class="mini-card">
+      <div class="mini-card-icon">🚫</div>
+      <div class="mini-card-title">不自行撕除</div>
+      <div class="mini-card-desc">不要自行撕除敷料或縫線，換藥時間與方式依醫護指示</div>
+    </div>
+    <div class="mini-card">
+      <div class="mini-card-icon">🧴</div>
+      <div class="mini-card-title">避免刺激</div>
+      <div class="mini-card-desc">傷口癒合期間避免泡澡、泡湯、游泳，避免塗抹未經醫師同意的藥膏</div>
+    </div>
+  </div>
+
+  <!-- 傷口警示 -->
+  <div class="warn-box">
+    <div class="warn-title">⚠️ 出現以下情況請告知醫護人員</div>
+    <div class="box-list">
+      <div class="box-item">傷口紅腫、熱痛明顯加重</div>
+      <div class="box-item">傷口滲出大量液體或有異味</div>
+      <div class="box-item">傷口裂開或縫線脫落</div>
+      <div class="box-item">發燒超過 38°C</div>
+    </div>
+  </div>
+
+  <!-- 用藥 -->
+  <div class="section-label">💊 用藥注意</div>
+  <div class="info-card">
+    <div class="card-header">
+      <span class="card-icon">💊</span>
+      <div>
+        <div class="card-title">止痛藥與術後用藥</div>
+        <div class="card-subtitle">疼痛不需要忍耐，按時用藥才能早日恢復</div>
+      </div>
+    </div>
+    <div class="card-body">
+      <div class="checklist">
+        <div class="check-item">
+          <div class="check-dot">✓</div>
+          <span>依護理師指示按時服用止痛藥，不要等到非常痛才吃</span>
+        </div>
+        <div class="check-item">
+          <div class="check-dot">✓</div>
+          <span>若有使用自控式止痛（PCA），感覺疼痛就可以按鈕，不用擔心過量</span>
+        </div>
+        <div class="check-item">
+          <div class="check-dot">✓</div>
+          <span>術前原本在服用的慢性病藥物，何時恢復服用請詢問醫師</span>
+        </div>
+        <div class="check-item">
+          <div class="check-dot">✓</div>
+          <span>出院時確認帶走所有醫師開立的藥物，並了解服藥方式</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 出院後注意 -->
+  <div class="section-label">🏠 出院後注意事項</div>
+  <div class="info-card">
+    <div class="card-header">
+      <span class="card-icon">🏠</span>
+      <div>
+        <div class="card-title">回家後的重要提醒</div>
+        <div class="card-subtitle">出院不代表完全恢復，仍需持續觀察</div>
+      </div>
+    </div>
+    <div class="card-body">
+      <div class="checklist">
+        <div class="check-item">
+          <div class="check-dot">✓</div>
+          <span>術後 24 小時內不可開車、操作機械或從事需高度專注的活動</span>
+        </div>
+        <div class="check-item">
+          <div class="check-dot">✓</div>
+          <span>避免飲酒——酒精與麻醉藥殘餘作用相互影響</span>
+        </div>
+        <div class="check-item">
+          <div class="check-dot">✓</div>
+          <span>依醫師指示回門診複查，不要自行停藥或延誤回診</span>
+        </div>
+        <div class="check-item">
+          <div class="check-dot">✓</div>
+          <span>家屬應陪同在旁，觀察患者狀態變化</span>
+        </div>
+        <div class="check-item">
+          <div class="check-dot">✓</div>
+          <span>休養期間保持室內通風，適當休息，避免過度勞累</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 緊急就醫 -->
+  <div class="urgent-box">
+    <div class="urgent-title">🚨 出現以下情況請立即就醫或撥打 119</div>
+    <div class="box-list">
+      <div class="box-item">呼吸困難、胸悶、胸痛</div>
+      <div class="box-item">意識不清、無法喚醒</div>
+      <div class="box-item">大量出血或血壓極低（頭暈、昏厥）</div>
+      <div class="box-item">嚴重嘔吐無法進水超過 8 小時</div>
+      <div class="box-item">下肢單側明顯腫脹、疼痛（可能血栓）</div>
+      <div class="box-item">高燒超過 39°C 且持續不退</div>
+    </div>
+  </div>
+
+  <!-- Reminder -->
+  <div class="reminder">
+    <strong>恢復是一個過程，不要給自己太大壓力。</strong><br>
+    有任何疑問或不舒服，隨時告訴醫護人員——我們在這裡陪您。<br>
+    若有個別病況，請與您的麻醉醫師討論 🙏
+  </div>
+
+</div>
+
+<footer class="site-footer">
+  衛生福利部彰化醫院 麻醉科｜本衛教資料僅供參考，實際醫療指示請依醫護人員說明為準<br>
+  如有任何疑問，請於門診或住院時洽詢麻醉科醫護人員
+</footer>
+
+</body>
+</html>
