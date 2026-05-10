@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>麻醉後照護須知｜衛生福利部彰化醫院麻醉科</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&family=Instrument+Serif:ital@0;1&display=swap');
+
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+
+:root{
+  --bg:#F4F7F5;
+  --surface:#FFFFFF;
+  --border:#DDE8E2;
+  --ink:#1A2420;
+  --ink-2:#5A6E66;
+  --ink-3:#9AADA5;
+  --primary:#2A6E52;
+  --primary-l:#EAF4EF;
+  --accent:#1B5C8A;
+  --accent-l:#E8F2F9;
+  --warn:#8C5500;
+  --warn-l:#FFF4E4;
+  --urgent:#8B2020;
+  --urgent-l:#FDF0F0;
+  --r:14px;
+}
+
+html{scroll-behavior:smooth}
+body{font-family:'Noto Sans TC',sans-serif;background:var(--bg);color:var(--ink);min-height:100vh}
+
+/* ─── Header ─── */
+.site-header{
+  background:var(--surface);border-bottom:1px solid var(--border);
+  padding:14px 20px;display:flex;align-items:center;gap:12px;
+  position:sticky;top:0;z-index:100;box-shadow:0 1px 6px rgba(0,0,0,0.06);
+}
+.header-dot{width:10px;height:10px;border-radius:50%;background:var(--primary);flex-shrink:0}
+.header-title{font-size:15px;font-weight:700;color:var(--ink);flex:1}
+.header-sub{font-size:11px;color:var(--ink-3);display:block;margin-top:1px}
+.theme-badge{
+  font-size:11px;color:var(--primary);background:var(--primary-l);
+  border:1px solid rgba(42,110,82,.2);border-radius:99px;padding:4px 12px;font-weight:500;
+}
+
+/* ─── Container ─── */
+.container{max-width:680px;margin:0 auto;padding:24px 16px 72px}
+
+/* ─── Hero ─── */
+.hero{
+  background:linear-gradient(135deg,#1A3A2C 0%,#2A6E52 100%);
+  border-radius:18px;padding:28px 24px 24px;
+  margin-bottom:24px;color:#fff;position:relative;overflow:hidden;
+}
+.hero::after{
+  content:'';position:absolute;right:-20px;bottom:-20px;
+  width:160px;height:160px;border-radius:50%;
+  background:radial-gradient(circle,rgba(255,255,255,.08),transparent 70%);
+  pointer-events:none;
+}
+.hero-eyebrow{font-size:11px;letter-spacing:.12em;color:rgba(180,230,200,.7);font-weight:500;margin-bottom:10px}
+.hero-title{font-family:'Instrument Serif',serif;font-size:26px;line-height:1.3;margin-bottom:12px;color:#fff}
+.hero-title em{font-style:italic;color:#A8E6C4}
+.hero-desc{font-size:13px;color:rgba(255,255,255,.75);line-height:1.8}
+
+/* ─── Section ─── */
+.section-label{
+  font-size:11px;font-weight:700;letter-spacing:.1em;
+  color:var(--primary);text-transform:uppercase;
+  margin:24px 0 12px;display:flex;align-items:center;gap:8px;
+}
+.section-label::after{content:'';flex:1;height:1px;background:var(--border)}
+
+/* ─── Chapter Card ─── */
+.chapter-card{
+  background:var(--surface);border:1px solid var(--border);
+  border-radius:var(--r);overflow:hidden;margin-bottom:16px;
+}
+.chapter-header{
+  display:flex;align-items:center;gap:12px;
+  padding:16px 18px;
+  background:var(--primary);
+}
+.chapter-num{
+  width:28px;height:28px;border-radius:50%;
+  background:rgba(255,255,255,.2);
+  display:flex;align-items:center;justify-content:center;
+  font-size:13px;font-weight:700;color:#fff;flex-shrink:0;
+}
+.chapter-title{font-size:14px;font-weight:700;color:#fff}
+.chapter-body{padding:16px 18px}
+
+/* ─── Monitor List ─── */
+.monitor-list{display:flex;flex-direction:column;gap:8px;margin:10px 0}
+.monitor-item{
+  display:flex;align-items:center;gap:10px;
+  padding:10px 12px;
+  background:var(--primary-l);border-radius:8px;
+  font-size:13px;color:#1A3A2C;
+}
+.monitor-icon{font-size:16px;flex-shrink:0}
+
+.info-note{
+  font-size:12.5px;color:var(--ink-2);line-height:1.8;
+  padding:12px 14px;margin-top:12px;
+  background:var(--accent-l);border-left:3px solid var(--accent);
+  border-radius:0 8px 8px 0;
+}
+
+/* ─── Discomfort Items ─── */
+.discomfort-item{
+  border:1px solid var(--border);border-radius:10px;
+  overflow:hidden;margin-bottom:10px;
+}
+.discomfort-header{
+  display:flex;align-items:center;gap:10px;
+  padding:12px 14px;background:var(--bg);
+  border-bottom:1px solid var(--border);
+}
+.discomfort-emoji{font-size:18px;flex-shrink:0}
+.discomfort-title{font-size:13.5px;font-weight:700;color:var(--ink)}
+.discomfort-body{padding:12px 14px;font-size:13px;color:var(--ink-2);line-height:1.75}
+
+/* ─── Care Steps ─── */
+.care-steps{display:flex;flex-direction:column;gap:10px}
+.care-step{
+  display:flex;align-items:flex-start;gap:12px;
+  padding:14px;
+  background:var(--bg);border-radius:10px;
+  border:1px solid var(--border);
+}
+.step-num{
+  width:28px;height:28px;min-width:28px;border-radius:50%;
+  background:var(--primary);
+  display:flex;align-items:center;justify-content:center;
+  font-size:12px;font-weight:700;color:#fff;flex-shrink:0;
+  margin-top:1px;
+}
+.step-content{}
+.step-title{font-size:13.5px;font-weight:700;color:var(--ink);margin-bottom:3px}
+.step-desc{font-size:12.5px;color:var(--ink-2);line-height:1.7}
+
+/* ─── Urgent Box ─── */
+.urgent-box{
+  background:var(--urgent-l);border:1.5px solid rgba(139,32,32,.25);
+  border-radius:var(--r);overflow:hidden;margin-bottom:16px;
+}
+.urgent-header{
+  background:var(--urgent);padding:14px 18px;
+  display:flex;align-items:center;gap:10px;
+}
+.urgent-header-text{font-size:14px;font-weight:700;color:#fff}
+.urgent-body{padding:14px 18px}
+.urgent-sub{font-size:12.5px;color:#6A1A1A;margin-bottom:10px;line-height:1.6}
+.urgent-list{display:flex;flex-direction:column;gap:7px}
+.urgent-item{
+  display:flex;align-items:baseline;gap:8px;
+  font-size:13px;color:#6A1A1A;line-height:1.6;
+}
+.urgent-item::before{content:'▸';color:var(--urgent);font-size:10px;flex-shrink:0}
+
+/* ─── Reminder ─── */
+.reminder{
+  font-size:12.5px;color:var(--ink-2);line-height:1.8;
+  padding:16px;background:var(--surface);border:1px solid var(--border);
+  border-radius:var(--r);text-align:center;
+}
+.reminder strong{color:var(--ink)}
+
+/* ─── Footer ─── */
+.site-footer{
+  text-align:center;padding:20px 16px;
+  font-size:11px;color:var(--ink-3);
+  border-top:1px solid var(--border);line-height:1.8;
+}
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-dot"></div>
+  <div class="header-title">
+    麻醉後照護須知
+    <span class="header-sub">POST-ANESTHESIA CARE GUIDE</span>
+  </div>
+  <span class="theme-badge">術後照護</span>
+</header>
+
+<div class="container">
+
+  <!-- Hero -->
+  <div class="hero">
+    <div class="hero-eyebrow">THEME 05 · 麻醉衛教</div>
+    <div class="hero-title">麻醉後照護<em>須知</em></div>
+    <div class="hero-desc">麻醉後身體需要一段時間恢復，請配合醫護指示，讓恢復過程更安全、舒適。</div>
+  </div>
+
+  <!-- 一、恢復室 -->
+  <div class="chapter-card">
+    <div class="chapter-header">
+      <div class="chapter-title">恢復室會觀察什麼？</div>
+    </div>
+    <div class="chapter-body">
+      <p style="font-size:13px;color:var(--ink-2);line-height:1.8;margin-bottom:12px">
+        手術結束後，您會被送到恢復室觀察。恢復室照護人員會持續評估：
+      </p>
+      <div class="monitor-list">
+        <div class="monitor-item"><span class="monitor-icon">🧠</span>意識清醒程度</div>
+        <div class="monitor-item"><span class="monitor-icon">🫁</span>呼吸與血氧狀況</div>
+        <div class="monitor-item"><span class="monitor-icon">❤️</span>血壓、心跳與體溫</div>
+        <div class="monitor-item"><span class="monitor-icon">🤕</span>傷口疼痛程度</div>
+        <div class="monitor-item"><span class="monitor-icon">🤢</span>噁心、嘔吐或發冷情形</div>
+        <div class="monitor-item"><span class="monitor-icon">🩹</span>引流管、尿管或傷口狀況</div>
+      </div>
+      <div class="info-note">
+        💡 麻醉藥效退去時，部分人會感到想睡、頭暈、噁心、發冷或喉嚨不適，多數屬於暫時現象，醫療團隊會依情況給予處理。
+      </div>
+    </div>
+  </div>
+
+  <!-- 二、常見不適 -->
+  <div class="chapter-card">
+    <div class="chapter-header">
+      <div class="chapter-title">麻醉後常見不適</div>
+    </div>
+    <div class="chapter-body">
+
+      <div class="discomfort-item">
+        <div class="discomfort-header">
+          <span class="discomfort-emoji">🤕</span>
+          <span class="discomfort-title">1. 傷口疼痛</span>
+        </div>
+        <div class="discomfort-body">
+          手術後可能會感到傷口疼痛或痠痛。<br>
+          請主動告訴醫護人員您的疼痛程度，醫師會依情況給予止痛藥物。
+        </div>
+      </div>
+
+      <div class="discomfort-item">
+        <div class="discomfort-header">
+          <span class="discomfort-emoji">🤢</span>
+          <span class="discomfort-title">2. 噁心、嘔吐</span>
+        </div>
+        <div class="discomfort-body">
+          麻醉、手術刺激或止痛藥物都可能造成噁心嘔吐。<br>
+          若想吐，請將頭側向一邊，避免嗆到；等症狀緩解後，再少量喝水或進食。
+        </div>
+      </div>
+
+      <div class="discomfort-item">
+        <div class="discomfort-header">
+          <span class="discomfort-emoji">🥶</span>
+          <span class="discomfort-title">3. 發冷、寒顫</span>
+        </div>
+        <div class="discomfort-body">
+          麻醉後因體溫調節暫時受到影響，可能出現發冷或發抖。<br>
+          醫護人員會協助保暖，必要時給予藥物處理。
+        </div>
+      </div>
+
+      <div class="discomfort-item">
+        <div class="discomfort-header">
+          <span class="discomfort-emoji">😮‍💨</span>
+          <span class="discomfort-title">4. 喉嚨不適</span>
+        </div>
+        <div class="discomfort-body">
+          若手術中有放置呼吸管，術後可能出現喉嚨乾、聲音沙啞或吞嚥不適。<br>
+          通常會逐漸改善，可依醫護指示少量喝水或採取舒緩方式。
+        </div>
+      </div>
+
+      <div class="discomfort-item">
+        <div class="discomfort-header">
+          <span class="discomfort-emoji">💧</span>
+          <span class="discomfort-title">5. 口乾、口渴</span>
+        </div>
+        <div class="discomfort-body">
+          麻醉後口乾口渴很常見。<br>
+          請先經醫護人員確認後，再從少量水分開始，避免一次喝太多造成噁心。
+        </div>
+      </div>
+
+      <div class="discomfort-item">
+        <div class="discomfort-header">
+          <span class="discomfort-emoji">😵</span>
+          <span class="discomfort-title">6. 頭暈、想睡或短暫混亂</span>
+        </div>
+        <div class="discomfort-body">
+          麻醉藥效可能持續一段時間，術後會感到想睡、頭暈或反應較慢。<br>
+          年長者有時可能出現短暫混亂或譫妄，請家屬陪伴並協助安全活動。一般麻醉藥效可能影響約 24 小時，恢復時間會依手術與個人體質而不同。
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- 三、照護重點 -->
+  <div class="chapter-card">
+    <div class="chapter-header">
+      <div class="chapter-title">麻醉後照護重點</div>
+    </div>
+    <div class="chapter-body">
+      <div class="care-steps">
+        <div class="care-step">
+          <div class="step-num">1</div>
+          <div class="step-content">
+            <div class="step-title">疼痛請主動說</div>
+            <div class="step-desc">疼痛不需要忍耐，請告訴醫護人員疼痛位置與程度。</div>
+          </div>
+        </div>
+        <div class="care-step">
+          <div class="step-num">2</div>
+          <div class="step-content">
+            <div class="step-title">飲食採漸進式</div>
+            <div class="step-desc">先少量喝水，沒有噁心或嘔吐後，再依醫囑逐步進食。</div>
+          </div>
+        </div>
+        <div class="care-step">
+          <div class="step-num">3</div>
+          <div class="step-content">
+            <div class="step-title">下床要有人陪</div>
+            <div class="step-desc">麻醉後可能頭暈或腳步不穩，第一次下床請務必由護理人員或家屬陪同。</div>
+          </div>
+        </div>
+        <div class="care-step">
+          <div class="step-num">4</div>
+          <div class="step-content">
+            <div class="step-title">注意呼吸與保暖</div>
+            <div class="step-desc">可依指示做深呼吸、咳嗽或活動四肢，並注意保暖，幫助身體恢復。</div>
+          </div>
+        </div>
+        <div class="care-step">
+          <div class="step-num">5</div>
+          <div class="step-content">
+            <div class="step-title">依醫囑用藥</div>
+            <div class="step-desc">止痛藥、止吐藥、抗生素或原本慢性病藥物，請依醫師與護理人員指示使用。</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 四、緊急通知 -->
+  <div class="urgent-box">
+    <div class="urgent-header">
+      <span style="font-size:18px">🚨</span>
+      <span class="urgent-header-text">出現以下情況請立即通知醫護人員</span>
+    </div>
+    <div class="urgent-body">
+      <p class="urgent-sub">若有以下情形，請儘速告知醫護人員：</p>
+      <div class="urgent-list">
+        <div class="urgent-item">呼吸困難、胸悶或血氧下降</div>
+        <div class="urgent-item">持續嘔吐，無法喝水或進食</div>
+        <div class="urgent-item">疼痛明顯加劇，止痛藥無法緩解</div>
+        <div class="urgent-item">意識混亂加重、叫不醒或異常躁動</div>
+        <div class="urgent-item">傷口大量出血或滲液增加</div>
+        <div class="urgent-item">發燒、畏寒或疑似感染</div>
+        <div class="urgent-item">長時間無法解尿或腹脹不適</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Reminder -->
+  <div class="reminder">
+    <strong>任何不舒服都可以開口說，越早說越安全。</strong><br>
+    醫護人員隨時在旁，讓我們一起陪您安心恢復。<br>
+    若有個別病況，請與您的麻醉醫師討論 🙏
+  </div>
+
+</div>
+
+<footer class="site-footer">
+  衛生福利部彰化醫院 麻醉科｜本衛教資料僅供參考，實際醫療指示請依醫護人員說明為準<br>
+  如有任何疑問，請於門診或住院時洽詢麻醉科醫護人員
+</footer>
+
+</body>
+</html>
